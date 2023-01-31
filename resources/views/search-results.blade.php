@@ -21,8 +21,8 @@
                 this.showResults = false;
             }
         }"
-        x-init="console.log({{json_encode($person)}}); console.log(json_encode($amounts));"
-        class="flex flex-wrap items-stretch justify-evenly min-h-screen">
+        x-init="console.log({{json_encode($person)}}); console.log({{json_encode($amounts)}});"
+        class="flex flex-wrap items-stretch justify-start min-h-screen">
         <div class="w-1/5 p-4 print:hidden bg-gray-200">
             <form action="" class="w-full border border-gray-500 rounded-md">
                 <div class="my-4 p-0">
