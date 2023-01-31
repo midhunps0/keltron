@@ -16,7 +16,7 @@
         transactions: [],
         regno: '',
         submitForm() {
-            if (this.regno.trim == '') {
+            if (this.regno.trim() == '') {
                 alert('Please enter a register number');
             } else {
                 let p = {};
