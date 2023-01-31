@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Search</title>
     <link rel="stylesheet" href="app.css">
-    <script src="app.js" type="text/javascript"></script>
 </head>
 
 <body class="text-sm">
@@ -105,6 +104,8 @@
         </div>
     </div>
     </div>
+
+    <script src="app.js" type="text/javascript"></script>
 </body>
 
 </html>
