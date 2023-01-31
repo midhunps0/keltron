@@ -11,6 +11,6 @@ form input {
 table {
     @apply border border-gray-400 rounded-md m-1;
 }
-table>tr:nth-child(even) {
+tr:nth-child(even) {
     @apply bg-gray-200;
 }

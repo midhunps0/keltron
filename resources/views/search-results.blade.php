@@ -11,17 +11,17 @@
 
 <body class="text-sm">
     <div class="flex flex-wrap">
-        <div class="w-1/5">
+        <div class="w-1/5 p-4">
             <form action="" class="w-full">
                 <div>
                     <label for="">Search by Reg. No.</label>
-                    <input type="text">
+                    <input type="text" class="w-full">
                 </div>
             </form>
         </div>
         <div class="my-2 w-4/5 flex flex-wrap">
             <div class="w-1/2">
-                <table class="w-full m-auto max-w-lg border border-b-gray-400 rounded-md overflow-hidden">
+                <table class="w-full m-auto max-w-lg border border-gray-400 rounded-md overflow-hidden">
                     <tr>
                         <th class="w-1/2 py-1 px-2">Particulars</th>
                         <th class="w-1/2 py-1 px-2">Value</th>
@@ -70,7 +70,7 @@
                 </table>
             </div>
             <div class="w-1/2 my-2">
-                <table class="w-full m-auto max-w-lg border border-b-gray-400 rounded-md overflow-hidden">
+                <table class="w-full m-auto max-w-lg border border-gray-400 rounded-md overflow-hidden">
                     <tr>
                         <th class="py-1 px-2 text-bold">Date</th>
                         <th class="py-1 px-2 text-bold">Voucher No.</th>
