@@ -23,10 +23,16 @@
         }"
         x-init="
             console.log({{json_encode($person)}}); console.log({{json_encode($amounts)}});
-            $member = {{json_encode($person)}},
-            $transactions = {{json_encode($amounts)}}
+            let ptext = document.getElementById('person');
+            let ttext = document.getElementById('transactions');
+            $member = JSON.parse(ptext.value);
+            $transactions = JSON.parse(ttext.value);
+            {{-- ptext.remove();
+            ttext.remove(); --}}
         "
         class="flex flex-wrap items-stretch justify-start min-h-screen">
+        <input id="person" type="hidden" value="{{json_encode($person)}}">
+        <input id="transactions" type="hidden" value="{{json_encode($amounts)}}">
         <div class="w-1/5 p-4 print:hidden bg-gray-200">
             <form action="" class="w-full border border-gray-500 rounded-md">
                 <div class="my-4 p-0">
@@ -104,14 +110,14 @@
                         <th class="py-1 px-2 text-bold">Amount</th>
                         <th class="py-1 px-2 text-bold">Tenure</th>
                     </tr>
-                    @foreach ($amounts as $amt)
+                    <template x-for="t in transactions">
                         <tr>
-                            <td class="py-1 px-2">{{ $amt->transdate }}</td>
-                            <td class="py-1 px-2">{{ $amt->vouchernum }}</td>
-                            <td class="py-1 px-2">{{ $amt->amount }}</td>
-                            <td class="py-1 px-2">{{ $amt->remark }}</td>
+                            <td class="py-1 px-2" x-text="t.transdate">{{ $amt->transdate }}</td>
+                            <td class="py-1 px-2" x-text="t.vouchernum">{{ $amt->vouchernum }}</td>
+                            <td class="py-1 px-2" x-text="t.amount">{{ $amt->amount }}</td>
+                            <td class="py-1 px-2" x-text="t.remark">{{ $amt->remark }}</td>
                         </tr>
-                    @endforeach
+                    </template>
                 </table>
             </div>
         </div>
