@@ -9,7 +9,7 @@ form input {
     @apply bg-white p-2 border border-gray-200 rounded-md;
 }
 table {
-    @apply border border-gray-400 rounded-md m-1;
+    @apply border border-gray-400 rounded-md;
 }
 tr:nth-child(even) {
     @apply bg-gray-100;
