@@ -19,9 +19,9 @@
                 </div>
             </form>
         </div>
-        <div class="my-2 w-4/5 flex flex-wrap">
+        <div class="my-2 w-4/5 flex flex-wrap space-x-2 justify-between items-stretch">
             <div class="w-1/2 min-w-fit p-1 border border-gray-300 rounded-md">
-                <h3 class="text-center font-bold underline">Member details</h3>
+                <h3 class="text-center font-bold underline text-lg my-1">Member details</h3>
                 <table class="w-full min-w-[350px] m-auto max-w-lg border border-gray-400 rounded-md overflow-hidden">
                     <tr>
                         <th class="w-1/2 py-1 px-2">Particulars</th>
@@ -71,7 +71,7 @@
                 </table>
             </div>
             <div class="w-1/2 min-w-fit my-2 p-1 border border-gray-300 rounded-md">
-                <h3 class="text-center font-bold underline">Transaction details</h3>
+                <h3 class="text-center font-bold underline text-lg my-1">Transaction details</h3>
                 <table class="w-full min-w-[350px] m-auto max-w-lg overflow-hidden">
                     <tr>
                         <th class="py-1 px-2 text-bold">Date</th>
