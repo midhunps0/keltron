@@ -15,6 +15,9 @@ class DefaultController extends Controller
     public function search(Request $request)
     {
         if ($request->input('search') == null || trim($request->input('search')) == '') {
+            if ($request->expectsJson()) {
+                return view('search-results')->fragment('results');
+            }
             return view('search-results');
         }
         // $result = DB::select(
