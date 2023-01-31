@@ -11,23 +11,31 @@
 
 <body class="text-sm">
     <div x-data="{
-            showResults: false
+            showResults: false,
+            member: {},
+            transactions: [],
+            submitForm() {
+                this.showResults = true;
+            },
+            reset() {
+                this.showResults = false;
+            }
         }"
-        x-init="console.log('showResults: '+showResults.toString());"
+        x-init="console.log({{json_encode($person)}}); console.log(json_encode($amounts));"
         class="flex flex-wrap items-stretch justify-evenly min-h-screen">
         <div class="w-1/5 p-4 print:hidden bg-gray-200">
             <form action="" class="w-full border border-gray-500 rounded-md">
                 <div class="my-4 p-0">
                     <label class="font-bold mb-4">Search by Reg. No.</label>
-                    <input type="text" class="w-full">
+                    <input type="text" class="w-full" required>
                 </div>
                 <div class="flex flex-row justify-evenly my-4 p-0">
-                    <button class="px-2 py-1 bg-gray-500 hover:bg-gray-300 rounded-md shadow-md text-white hover:text-gray-600 transition-all" type="button">Clear</button>
-                    <button class="px-2 py-1 bg-gray-500 hover:bg-gray-300 rounded-md shadow-md text-white hover:text-gray-600 transition-all" type="submit">Submit</button>
+                    <button @click.prevent.stop="reset()" class="px-2 py-1 bg-gray-500 hover:bg-gray-300 rounded-md shadow-md text-white hover:text-gray-600 transition-all" type="button">Clear</button>
+                    <button @click.prevent.stop="submitForm()" class="px-2 py-1 bg-green-600 hover:bg-green-300 rounded-md shadow-md text-white hover:text-gray-600 transition-all" type="submit">Submit</button>
                 </div>
             </form>
         </div>
-        <div class=" relative w-4/5 flex flex-col">
+        <div x-show="showResults" class=" relative w-4/5 flex flex-col">
             <button type="button" class="bg-gray-500 hover:bg-gray-300 text-white hover:text-gray-600 px-2 py-1 rounded-md shadow-md absolute top-2 right-2" @click.stop.prevent="window.print()">Print</button>
             <div>
                 <h3 class="text-center font-bold underline text-xl my-1">Member details</h3>
