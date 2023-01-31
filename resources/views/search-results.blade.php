@@ -9,8 +9,8 @@
 </head>
 <body class="text-sm">
     <div>
-        <div class="my-2">
-            <table class="margin-auto max-w-lg border border-b-gray-400 rounded-md">
+        <div class="my-2 w-full">
+            <table class="m-auto max-w-lg border border-b-gray-400 rounded-md">
                 <tr>
                     <th class="w-1/2 py-1 px-2">Particulars</th>
                     <th class="w-1/2 py-1 px-2">Value</th>
@@ -59,7 +59,7 @@
             </table>
         </div>
         <div class="my-2">
-            <table class="margin-auto max-w-lg border border-b-gray-400 rounded-md">
+            <table class="m-auto max-w-lg border border-b-gray-400 rounded-md">
                 <tr>
                     <th class="py-1 px-2 text-bold">Date</th>
                     <th class="py-1 px-2 text-bold">Voucher No.</th>
