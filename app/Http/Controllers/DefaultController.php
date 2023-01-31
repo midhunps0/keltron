@@ -21,7 +21,7 @@ class DefaultController extends Controller
             "SELECT * FROM public.registration Where regno='8/05/546/100'"
         );
         $amountResults = DB::select(
-            "SELECT * FROM public.registration JOIN financialaccounting.ledger ON public.registration.regid = financialaccounting.ledger.regid Join public.remarks ON financialaccounting.ledger.remarks = public.remarks.remindex Where regno='8/05/546/100' ORDER BY financialaccounting.ledger.transdate DESC"
+            "SELECT financialaccounting.ledger.transdate FROM public.registration JOIN financialaccounting.ledger ON public.registration.regid = financialaccounting.ledger.regid Join public.remarks ON financialaccounting.ledger.remarks = public.remarks.remindex Where regno='8/05/546/100' ORDER BY financialaccounting.ledger.transdate DESC"
         );
 
         dd($personResults, $amountResults);
