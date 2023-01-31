@@ -112,10 +112,10 @@
                     </tr>
                     <template x-for="t in transactions">
                         <tr>
-                            <td class="py-1 px-2" x-text="t.transdate">{{ $amt->transdate }}</td>
-                            <td class="py-1 px-2" x-text="t.vouchernum">{{ $amt->vouchernum }}</td>
-                            <td class="py-1 px-2" x-text="t.amount">{{ $amt->amount }}</td>
-                            <td class="py-1 px-2" x-text="t.remark">{{ $amt->remark }}</td>
+                            <td class="py-1 px-2" x-text="t.transdate"></td>
+                            <td class="py-1 px-2" x-text="t.vouchernum"></td>
+                            <td class="py-1 px-2" x-text="t.amount"></td>
+                            <td class="py-1 px-2" x-text="t.remark"></td>
                         </tr>
                     </template>
                 </table>
