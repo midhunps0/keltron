@@ -10,12 +10,16 @@
 </head>
 
 <body class="text-sm">
-    <div class="flex flex-wrap">
-        <div class="w-1/5 p-4 print:hidden">
+    <div class="flex flex-wrap items-stretch justify-evenly">
+        <div class="w-1/5 p-4 print:hidden bg-gray-200">
             <form action="" class="w-full">
-                <div>
-                    <label for="">Search by Reg. No.</label>
+                <div class="my-1 p-0">
+                    <label class="text-bold mb-1">Search by Reg. No.</label>
                     <input type="text" class="w-full">
+                </div>
+                <div class="flex flex-row justify-evenly my-2 p-0">
+                    <button type="button">Clear</button>
+                    <button type="submit">Submit</button>
                 </div>
             </form>
         </div>
