@@ -17,7 +17,7 @@
         regno: '',
         submitForm() {
             let p = {};
-            p[search] = this.regno;
+            p.search = this.regno;
             axios.get(
                 '{{route('search')}}',
                 {
@@ -52,8 +52,8 @@
                 </div>
             </form>
         </div>
-        @fragment('results')
         <div id="resultsdiv" class=" relative w-4/5 flex flex-col">
+        @fragment('results')
             <button type="button"
                 class="bg-gray-500 hover:bg-gray-300 text-white hover:text-gray-600 px-2 py-1 rounded-md shadow-md absolute top-2 right-2"
                 @click.stop.prevent="window.print()">Print</button>
@@ -138,8 +138,8 @@
                 <h3 class="text-center font-bold underline text-lg my-1 text-red-400">No details found.</h3>
             </div>
             @endif
-        </div>
         @endfragment
+        </div>
     </div>
 
     <script src="app.js" type="text/javascript"></script>
