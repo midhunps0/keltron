@@ -124,18 +124,18 @@
                                     <th class="py-1 px-2 text-bold">Amount</th>
                                     <th class="py-1 px-2 text-bold">Tenure</th>
                                 </tr>
-                                @foreach ($amounts as $amt)
+                                @forelse ( as )($amounts as $amt)
                                     <tr>
                                         <td class="py-1 px-2">{{ $amt->transdate }}</td>
                                         <td class="py-1 px-2">{{ $amt->vouchernum }}</td>
                                         <td class="py-1 px-2">{{ $amt->amount }}</td>
                                         <td class="py-1 px-2">{{ $amt->remark }}</td>
                                     </tr>
-                                @else
+                                @empty
                                 <tr>
                                     <td colspan="4">No transactions recorded for this user.</td>
                                 </tr>
-                                @endforeach
+                                @endforelse
                             </table>
                             {{-- @endif --}}
                         </div>
