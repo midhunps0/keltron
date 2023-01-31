@@ -7,10 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Search</title>
     <link rel="stylesheet" href="app.css">
+    <script src="app.js" type="text/javascript"></script>
 </head>
 
 <body class="text-sm">
-    <div class="flex flex-wrap items-stretch justify-evenly">
+    <div x-data="{
+            showResults: false;
+        }"
+        x-init="console.log('showResults: '+showResults.toString());"
+        class="flex flex-wrap items-stretch justify-evenly min-h-screen">
         <div class="w-1/5 p-4 print:hidden bg-gray-200">
             <form action="" class="w-full border border-gray-500 rounded-md">
                 <div class="my-4 p-0">
