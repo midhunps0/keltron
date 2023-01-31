@@ -124,7 +124,7 @@
                                     <th class="py-1 px-2 text-bold">Amount</th>
                                     <th class="py-1 px-2 text-bold">Tenure</th>
                                 </tr>
-                                @forelse ( as )($amounts as $amt)
+                                @forelse ($amounts as $amt)
                                     <tr>
                                         <td class="py-1 px-2">{{ $amt->transdate }}</td>
                                         <td class="py-1 px-2">{{ $amt->vouchernum }}</td>
