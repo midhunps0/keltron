@@ -12,14 +12,14 @@
 <body class="text-sm">
     <div class="flex flex-wrap items-stretch justify-evenly">
         <div class="w-1/5 p-4 print:hidden bg-gray-200">
-            <form action="" class="w-full">
-                <div class="my-1 p-0">
-                    <label class="text-bold mb-1">Search by Reg. No.</label>
+            <form action="" class="w-full border border-gray-500 rounded-md">
+                <div class="my-4 p-0">
+                    <label class="text-bold mb-2">Search by Reg. No.</label>
                     <input type="text" class="w-full">
                 </div>
-                <div class="flex flex-row justify-evenly my-2 p-0">
-                    <button type="button">Clear</button>
-                    <button type="submit">Submit</button>
+                <div class="flex flex-row justify-evenly my-4 p-0">
+                    <button class="px-2 py-1 bg-gray-300 hover:bg-gray-500 rounded-md shadow-md" type="button">Clear</button>
+                    <button class="px-2 py-1 bg-gray-300 hover:bg-gray-500 rounded-md shadow-md" type="submit">Submit</button>
                 </div>
             </form>
         </div>
