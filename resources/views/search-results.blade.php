@@ -1,67 +1,67 @@
 <div>
-    <div>
-        <table>
+    <div class="my-2">
+        <table class="margin-auto max-w-lg border border-b-gray-400 rounded-md">
             <tr>
-                <th>Particulars</th>
-                <th>Value</th>
+                <th class="w-1/2 p-2">Particulars</th>
+                <th class="w-1/2 p-2">Value</th>
             </tr>
 
             <tr>
-                <td>Reg. No.</td>
-                <td>{{ $person->regno }}</td>
+                <td class="p-2">Reg. No.</td>
+                <td class="p-2">{{ $person->regno }}</td>
             </tr>
             <tr>
-                <td>Name</td>
-                <td>{{ $person->empname }}</td>
+                <td class="p-2">Name</td>
+                <td class="p-2">{{ $person->empname }}</td>
             </tr>
             <tr>
-                <td>Guardian Name</td>
-                <td>{{ $person->guardianname }}</td>
+                <td class="p-2">Guardian Name</td>
+                <td class="p-2">{{ $person->guardianname }}</td>
             </tr>
             <tr>
-                <td>Address</td>
-                <td>{{ $person->empcuraddress }}</td>
+                <td class="p-2">Address</td>
+                <td class="p-2">{{ $person->empcuraddress }}</td>
             </tr>
             <tr>
-                <td>DOB</td>
-                <td>{{ $person->dateofbirth }}</td>
+                <td class="p-2">DOB</td>
+                <td class="p-2">{{ $person->dateofbirth }}</td>
             </tr>
             <tr>
-                <td>Start Date</td>
-                <td>{{ $person->startingdate }}</td>
+                <td class="p-2">Start Date</td>
+                <td class="p-2">{{ $person->startingdate }}</td>
             </tr>
             <tr>
-                <td>Reg. Date</td>
-                <td>{{ $person->regdate }}</td>
+                <td class="p-2">Reg. Date</td>
+                <td class="p-2">{{ $person->regdate }}</td>
             </tr>
             <tr>
                 <td>Create Date</td>
                 <td>{{ $person->createdate }}</td>
             </tr>
             <tr>
-                <td>ID Mark 1</td>
-                <td>{{ $person->idmark1 }}</td>
+                <td class="p-2">ID Mark 1</td>
+                <td class="p-2">{{ $person->idmark1 }}</td>
             </tr>
             <tr>
-                <td>ID Mark 2</td>
-                <td>{{ $person->idmark2 }}</td>
+                <td class="p-2">ID Mark 2</td>
+                <td class="p-2">{{ $person->idmark2 }}</td>
             </tr>
         </table>
     </div>
-    <div>
-        <table>
+    <div class="my-2">
+        <table class="margin-auto max-w-lg border border-b-gray-400 rounded-md">
             <tr>
-                <th>Date</th>
-                <th>Voucher No.</th>
-                <th>Amount</th>
-                <th>Remarks</th>
+                <th class="p-2 text-bold">Date</th>
+                <th class="p-2 text-bold">Voucher No.</th>
+                <th class="p-2 text-bold">Amount</th>
+                <th class="p-2 text-bold">Remarks</th>
             </tr>
             @foreach ($amounts as $amt)
                 <tr>
-                    <td>{{$amt->transdate}}</td>
-                    <td>{{$amt->vouchernum}}</td>
-                    <td>{{$amt->amount}}</td>
-                    <td>{{$amt->remark}}</td>
+                    <td class="p-2">{{$amt->transdate}}</td>
+                    <td class="p-2">{{$amt->vouchernum}}</td>
+                    <td class="p-2">{{$amt->amount}}</td>
+                    <td class="p-2">{{$amt->remark}}</td>
                 </tr>
             @endforeach
         </table>
