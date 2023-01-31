@@ -25,8 +25,9 @@
             console.log({{json_encode($person)}}); console.log({{json_encode($amounts)}});
             let ptext = document.getElementById('person');
             let ttext = document.getElementById('transactions');
-            $member = JSON.parse(ptext.value);
-            $transactions = JSON.parse(ttext.value);
+            member = JSON.parse(ptext.value);
+            transactions = JSON.parse(ttext.value);
+
             {{-- ptext.remove();
             ttext.remove(); --}}
         "
