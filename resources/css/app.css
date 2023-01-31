@@ -12,5 +12,5 @@ table {
     @apply border border-gray-400 rounded-md m-1;
 }
 tr:nth-child(even) {
-    @apply bg-gray-200;
+    @apply bg-gray-100;
 }
