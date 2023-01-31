@@ -23,7 +23,8 @@ class DefaultController extends Controller
         $amountResults = DB::select(
             "SELECT financialaccounting.ledger.transdate FROM public.registration JOIN financialaccounting.ledger ON public.registration.regid = financialaccounting.ledger.regid Join public.remarks ON financialaccounting.ledger.remarks = public.remarks.remindex Where regno='8/05/546/100' ORDER BY financialaccounting.ledger.transdate DESC"
         );
-        dd(get_object_vars($personResults[0]));
+        $vars = get_object_vars($personResults[0]);
+        dd($vars);
         // dd($amountResults);
         return view('search-results', ['person' => $personResults, 'amounts' => $amountResults]);
     }
