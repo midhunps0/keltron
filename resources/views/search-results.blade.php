@@ -16,20 +16,23 @@
         transactions: [],
         regno: '',
         submitForm() {
-            let p = {};
-            p.search = this.regno;
-            axios.get(
-                '{{route('search')}}',
-                {
-                    params: p
-                }
-            ).then((r) => {
-                console.log(r.data);
-                document.getElementById('resultsdiv').innerHTML = r.data;
-            }).catch((e) => {
-                console.log(e);
-            });
-            this.showResults = true;
+            if (this.regno.trim = '') {
+                alert("Please enter a register number");
+            } else {
+                let p = {};
+                p.search = this.regno;
+                axios.get(
+                    '{{route('search')}}',
+                    {
+                        params: p
+                    }
+                ).then((r) => {
+                    console.log(r.data);
+                    document.getElementById('resultsdiv').innerHTML = r.data;
+                }).catch((e) => {
+                    console.log(e);
+                });
+            }
         },
         reset() {
             document.getElementById('resultsdiv').innerHTML = '';
