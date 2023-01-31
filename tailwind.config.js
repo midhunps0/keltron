@@ -6,7 +6,10 @@ module.exports = {
         "./resources/**/*.vue",
     ],
     theme: {
-    extend: {},
+    extend: {
+        screens: {
+            'print': { 'raw': 'print' },
+        }},
     },
     plugins: [],
 }

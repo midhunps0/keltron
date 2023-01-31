@@ -11,7 +11,7 @@
 
 <body class="text-sm">
     <div class="flex flex-wrap">
-        <div class="w-1/5 p-4">
+        <div class="w-1/5 p-4 print:hidden">
             <form action="" class="w-full">
                 <div>
                     <label for="">Search by Reg. No.</label>
@@ -81,7 +81,7 @@
                         <th class="py-1 px-2 text-bold">Date</th>
                         <th class="py-1 px-2 text-bold">Voucher No.</th>
                         <th class="py-1 px-2 text-bold">Amount</th>
-                        <th class="py-1 px-2 text-bold">Remarks</th>
+                        <th class="py-1 px-2 text-bold">Tenure</th>
                     </tr>
                     @foreach ($amounts as $amt)
                         <tr>
