@@ -19,9 +19,13 @@
                 </div>
             </form>
         </div>
+        <div class="flex flex-col">
+            <div>
+                <h3 class="text-center font-bold underline text-xl my-1">Member details</h3>
+            </div>
         <div class="my-2 w-4/5 flex flex-wrap space-x-2 justify-evenly items-stretch">
             <div class="w-2/5 min-w-fit p-1 border border-gray-300 rounded-md">
-                <h3 class="text-center font-bold underline text-lg my-1">Member details</h3>
+                <h3 class="text-center font-bold underline text-lg my-1">Personal details</h3>
                 <table class="w-full min-w-[350px] m-auto max-w-lg border border-gray-400 rounded-md overflow-hidden">
                     <tr>
                         <th class="w-1/2 py-1 px-2">Particulars</th>
@@ -90,6 +94,7 @@
                 </table>
             </div>
         </div>
+    </div>
     </div>
 </body>
 
