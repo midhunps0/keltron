@@ -17,7 +17,7 @@
         regno: '',
         submitForm() {
             if (this.regno.trim = '') {
-                alert("Please enter a register number");
+                alert('Please enter a register number');
             } else {
                 let p = {};
                 p.search = this.regno;
