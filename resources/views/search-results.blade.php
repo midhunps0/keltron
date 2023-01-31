@@ -21,7 +21,11 @@
                 this.showResults = false;
             }
         }"
-        x-init="console.log({{json_encode($person)}}); console.log({{json_encode($amounts)}});"
+        x-init="
+            console.log({{json_encode($person)}}); console.log({{json_encode($amounts)}});
+            $member = {{json_encode($person)}},
+            $transactions = {{json_encode($amounts)}}
+        "
         class="flex flex-wrap items-stretch justify-start min-h-screen">
         <div class="w-1/5 p-4 print:hidden bg-gray-200">
             <form action="" class="w-full border border-gray-500 rounded-md">
@@ -51,43 +55,43 @@
 
                     <tr>
                         <td class="py-1 px-2">Reg. No.</td>
-                        <td class="py-1 px-2">{{ $person->regno }}</td>
+                        <td class="py-1 px-2" x-text="member.regno"></td>
                     </tr>
                     <tr>
                         <td class="py-1 px-2">Name</td>
-                        <td class="py-1 px-2">{{ $person->empname }}</td>
+                        <td class="py-1 px-2" x-text="member.empname"></td>
                     </tr>
                     <tr>
                         <td class="py-1 px-2">Guardian Name</td>
-                        <td class="py-1 px-2">{{ $person->guardianname }}</td>
+                        <td class="py-1 px-2" x-text="member.guardianname"></td>
                     </tr>
                     <tr>
                         <td class="py-1 px-2">Address</td>
-                        <td class="py-1 px-2">{{ $person->empcuraddress }}</td>
+                        <td class="py-1 px-2" x-text="member.empcuraddress"></td>
                     </tr>
                     <tr>
                         <td class="py-1 px-2">DOB</td>
-                        <td class="py-1 px-2">{{ $person->dateofbirth }}</td>
+                        <td class="py-1 px-2" x-text="member.dateofbirth"></td>
                     </tr>
                     <tr>
                         <td class="py-1 px-2">Start Date</td>
-                        <td class="py-1 px-2">{{ $person->startingdate }}</td>
+                        <td class="py-1 px-2" x-text="member.startingdate"></td>
                     </tr>
                     <tr>
                         <td class="py-1 px-2">Reg. Date</td>
-                        <td class="py-1 px-2">{{ $person->regdate }}</td>
+                        <td class="py-1 px-2" x-text="member.regdate"></td>
                     </tr>
                     <tr>
                         <td class="py-1 px-2">Create Date</td>
-                        <td class="py-1 px-2">{{ $person->createdate }}</td>
+                        <td class="py-1 px-2" x-text="member.createdate"></td>
                     </tr>
                     <tr>
                         <td class="py-1 px-2">ID Mark 1</td>
-                        <td class="py-1 px-2">{{ $person->idmark1 }}</td>
+                        <td class="py-1 px-2" x-text="member.idmark1"></td>
                     </tr>
                     <tr>
                         <td class="py-1 px-2">ID Mark 2</td>
-                        <td class="py-1 px-2">{{ $person->idmark2 }}</td>
+                        <td class="py-1 px-2" x-text="member.idmark2"></td>
                     </tr>
                 </table>
             </div>
