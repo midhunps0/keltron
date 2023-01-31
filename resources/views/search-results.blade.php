@@ -8,9 +8,17 @@
     <link rel="stylesheet" href="app.css">
 </head>
 <body class="text-sm">
-    <div>
-        <div class="my-2 w-full">
-            <table class="m-auto max-w-lg border border-b-gray-400 rounded-md">
+    <div class="flex flex-wrap">
+        <div class="w-1/5">
+            <form action="" class="w-full">
+                <div>
+                    <label for="">Search by Reg. No.</label>
+                    <input type="text">
+                </div>
+            </form>
+        </div>
+        <div class="my-2 w-4/5">
+            <table class="m-auto max-w-lg border border-b-gray-400 rounded-md overflow-hidden">
                 <tr>
                     <th class="w-1/2 py-1 px-2">Particulars</th>
                     <th class="w-1/2 py-1 px-2">Value</th>
@@ -45,8 +53,8 @@
                     <td class="py-1 px-2">{{ $person->regdate }}</td>
                 </tr>
                 <tr>
-                    <td>Create Date</td>
-                    <td>{{ $person->createdate }}</td>
+                    <td class="py-1 px-2">Create Date</td>
+                    <td class="py-1 px-2">{{ $person->createdate }}</td>
                 </tr>
                 <tr>
                     <td class="py-1 px-2">ID Mark 1</td>
@@ -59,7 +67,7 @@
             </table>
         </div>
         <div class="my-2">
-            <table class="m-auto max-w-lg border border-b-gray-400 rounded-md">
+            <table class="m-auto max-w-lg border border-b-gray-400 rounded-md overflow-hidden">
                 <tr>
                     <th class="py-1 px-2 text-bold">Date</th>
                     <th class="py-1 px-2 text-bold">Voucher No.</th>
