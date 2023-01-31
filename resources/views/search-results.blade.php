@@ -11,7 +11,7 @@
 
 <body class="text-sm">
     <div x-data="{
-            showResults: false;
+            showResults: false
         }"
         x-init="console.log('showResults: '+showResults.toString());"
         class="flex flex-wrap items-stretch justify-evenly min-h-screen">
