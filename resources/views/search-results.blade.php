@@ -75,7 +75,7 @@
                 </div>
                 <div class="my-4 p-0 flex flex-row space-x-2">
                     <label class="font-bold mb-4">Match type:</label>
-                    <select x-model="searchtype" class="p-1 rounded-md flex-grow">
+                    <select x-model="searchtype" class="px-1 rounded-md flex-grow">
                         <option value="Exact">Exact</option>
                         <option value="Contains">Contains</option>
                         <option value="Starts">Starts With</option>
