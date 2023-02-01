@@ -80,9 +80,9 @@
                         type="submit">Submit</button>
                 </div>
             </form>
-            <div x-show="searchresults.length > 0" id="resultsdiv" class="w-full flex-grow overflow-x-scroll max-h-[400px]">
+            <div x-show="searchresults.length > 0" id="resultsdiv" class="w-full flex-grow">
                 <h3 class="px-2 my-2 font-bold">Click to load details:</h3>
-                <ul class="px-2">
+                <ul class="px-2 overflow-x-scroll max-h-[600px]">
                     <template x-for="result in searchresults">
                         <li>
                             <button @click="getDetails(result.regno)" type="button" class="text-left bg-gray-100 border-b border-gray-400 my-1 block w-full break-words" x-text="result.empname + ', ' + result.regno"></button>
