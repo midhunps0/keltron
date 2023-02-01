@@ -65,7 +65,7 @@
                 this.regno = '';
             }
         }" class="flex flex-wrap items-stretch justify-start min-h-screen">
-        <div class="w-1/5 p-4 print:hidden bg-gray-200">
+        <div class="w-1/5 p-4 print:hidden bg-gray-200 flex flex-col">
             <form action="" class="w-full border bg-gray-400 border-gray-500 rounded-md">
                 <div class="my-4 p-0">
                     <label class="font-bold mb-4">Search by Reg. No. / Name</label>
@@ -80,7 +80,7 @@
                         type="submit">Submit</button>
                 </div>
             </form>
-            <div x-show="searchresults.length > 0" id="resultsdiv" class="w-full">
+            <div x-show="searchresults.length > 0" id="resultsdiv" class="w-full flex-grow overflow-x-scroll">
                 <h3 class="px-2 my-2 font-bold">Click to load details:</h3>
                 <ul class="px-2">
                     <template x-for="result in searchresults">
@@ -91,7 +91,7 @@
                 </ul>
             </div>
         </div>
-        <div id="detailsdiv" class=" relative w-4/5 flex flex-col">
+        <div id="detailsdiv" class="relative w-4/5 flex flex-col">
             @if (isset($persons) && isset($amounts))
                 @fragment('results')
                     @if (count($persons) == 0)
