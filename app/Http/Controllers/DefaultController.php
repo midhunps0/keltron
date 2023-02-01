@@ -23,7 +23,7 @@ class DefaultController extends Controller
         if (!$hasDigits) {
             $qstr .= "Where empname LIKE '%$search%'";
         } else {
-            $qstr .= "Where regno='$search'";
+            $qstr .= "Where regno LIKE '%$search'";
         }
         $results = DB::select($qstr);
         //
