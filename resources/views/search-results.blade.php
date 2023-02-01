@@ -73,9 +73,9 @@
                     <label class="font-bold mb-4">Search by Reg. No. / Name</label>
                     <input x-model="regno" type="text" class="w-full" required>
                 </div>
-                <div class="my-4 p-0">
-                    <label class="font-bold mb-4">Exact match</label>
-                    <select x-model="searchtype">
+                <div class="my-4 p-0 flex flex-row space-x-1">
+                    <label class="font-bold mb-4">Match type:</label>
+                    <select x-model="searchtype" class="p-1 rounded-md">
                         <option value="Exact">Exact</option>
                         <option value="Contains">Contains</option>
                         <option value="Starts">Starts With</option>
