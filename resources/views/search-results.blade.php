@@ -61,7 +61,7 @@
             },
             reset() {
                 document.getElementById('resultsdiv').innerHTML = '';
-                regno = '';
+                this.regno = '';
             }
         }" class="flex flex-wrap items-stretch justify-start min-h-screen">
         <div class="w-1/5 p-4 print:hidden bg-gray-200">
