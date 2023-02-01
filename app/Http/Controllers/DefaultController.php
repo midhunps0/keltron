@@ -19,37 +19,24 @@ class DefaultController extends Controller
                 break;
             }
         }
-        switch($type) {
-            case 'Contains':
-                $search = "%$search%";
-                break;
-            case 'Starts':
-                $search = "$search%";
-                break;
-            case 'Ends':
-                $search = "%$search";
-                break;
-        }
         $qstr = "SELECT regno, empname, guardianname, empcuraddress, dateofbirth, startingdate, regdate, public.registration.createdate, idmark1, idmark2 FROM public.registration ";
         switch($type) {
+            case 'Exact':
+                $qstr .= "Where empname = '$search'";
+                break;
             case 'Contains':
-                $search = "%$search%";
+                $qstr .= "Where empname LIKE '%$search%'";
                 break;
             case 'Starts':
-                $search = "$search%";
+                $qstr .= "Where empname LIKE '$search%'";
                 break;
             case 'Ends':
-                $search = "%$search";
+                $qstr .= "Where empname LIKE '%$search'";
                 break;
         }
-        $qstr .= "Where empname LIKE '$search'";
-        // if (!$hasDigits) {
-        //     $qstr .= "Where empname LIKE '%$search%'";
-        // } else {
-        //     $qstr .= "Where regno LIKE '%$search'";
-        // }
+
         $results = DB::select($qstr);
-        //
+
         return response()->json(
             [
                 'results' => $results
