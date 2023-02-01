@@ -80,7 +80,7 @@
                         type="submit">Submit</button>
                 </div>
             </form>
-            <div x-show="searchresults.length > 0" id="resultsdiv" class="w-full flex-grow overflow-x-scroll">
+            <div x-show="searchresults.length > 0" id="resultsdiv" class="w-full flex-grow overflow-x-scroll max-h-[400px]">
                 <h3 class="px-2 my-2 font-bold">Click to load details:</h3>
                 <ul class="px-2">
                     <template x-for="result in searchresults">
