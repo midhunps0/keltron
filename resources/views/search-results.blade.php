@@ -206,7 +206,7 @@
             @endif
         </div>
         <div x-show="loading" class="fixed top-0 left-0 h-screen w-screen bg-gray-900 opacity-40 z-50 flex flex-row items-center justify-center">
-                <img src="loading.gif" class="h-16 w-16">
+                <img src="loading.gif" class="h-16 w-16 bg-opacity-100 isolate">
         </div>
     </div>
     <script src="app.js" type="text/javascript"></script>
