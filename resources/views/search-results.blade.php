@@ -12,24 +12,42 @@
 <body class="text-sm">
     <div x-data="{
             showResults: false,
+            searchresults: [],
             member: {},
             transactions: [],
             regno: '',
             loading: false,
-            submitForm() {
+            getDetails(rno) {
+                let p = {};
+                p.search = rno;
+                this.loading = true;
+                axios.get(
+                    '{{ route('details') }}', {
+                        params: p
+                    }
+                ).then((r) => {
+                    console.log(r.data);
+                    document.getElementById('detailsdiv').innerHTML = r.data;
+                    this.loading = false;
+                }).catch((e) => {
+                    console.log(e);
+                    this.loading = false;
+                });
+            },
+            doSearch() {
                 if (this.regno.trim() == '') {
                     alert('Please enter a register number');
                 } else {
                     let p = {};
                     p.search = this.regno;
-                    this.loading - true;
-                    axios.get(
+                    this.loading = true;
+                    axios.post(
                         '{{ route('search') }}', {
                             params: p
                         }
                     ).then((r) => {
                         console.log(r.data);
-                        document.getElementById('resultsdiv').innerHTML = r.data;
+                        this.searchresults = JSON.parse(r.data.results);
                         this.loading = false;
                     }).catch((e) => {
                         console.log(e);
@@ -51,13 +69,22 @@
                     <button @click.prevent.stop="reset()"
                         class="px-2 py-1 bg-gray-500 hover:bg-gray-300 rounded-md shadow-md text-white hover:text-gray-600 transition-all"
                         type="button">Clear</button>
-                    <button @click.prevent.stop="submitForm()"
+                    <button @click.prevent.stop="doSearch()"
                         class="px-2 py-1 bg-green-600 hover:bg-green-300 rounded-md shadow-md text-white hover:text-gray-600 transition-all"
                         type="submit">Submit</button>
                 </div>
             </form>
+            <div id="resultsdiv" class="w-full">
+                <ul>
+                    <template x-for="result in searchresults">
+                        <li>
+                            <button @click="getDetails(result.regno)" type="button" class="bg-gray-100 border-b border-gray-400 my-1 block w-full" x-text="result.empname + ', ' + result.regno"></button>
+                        </li>
+                    </template>
+                </ul>
+            </div>
         </div>
-        <div id="resultsdiv" class=" relative w-4/5 flex flex-col">
+        <div id="detailsdiv" class=" relative w-4/5 flex flex-col">
             @if (isset($persons) && isset($amounts))
                 @fragment('results')
                     @if (count($persons) == 0)
