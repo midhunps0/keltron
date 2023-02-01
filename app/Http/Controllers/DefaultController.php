@@ -11,7 +11,7 @@ class DefaultController extends Controller
     {
         // 8/05/546/100
         $search = $request->input('search');
-
+        $type = $request->input('type');
         $hasDigits = false;
         for ($i = 0; $i < strlen($search); $i++) {
             if (ctype_digit($search[$i])) {
@@ -19,12 +19,35 @@ class DefaultController extends Controller
                 break;
             }
         }
-        $qstr = "SELECT regno, empname, guardianname, empcuraddress, dateofbirth, startingdate, regdate, public.registration.createdate, idmark1, idmark2 FROM public.registration ";
-        if (!$hasDigits) {
-            $qstr .= "Where empname LIKE '%$search%'";
-        } else {
-            $qstr .= "Where regno LIKE '%$search'";
+        switch($type) {
+            case 'Contains':
+                $search = "%$search%";
+                break;
+            case 'Starts':
+                $search = "$search%";
+                break;
+            case 'Ends':
+                $search = "%$search";
+                break;
         }
+        $qstr = "SELECT regno, empname, guardianname, empcuraddress, dateofbirth, startingdate, regdate, public.registration.createdate, idmark1, idmark2 FROM public.registration ";
+        switch($type) {
+            case 'Contains':
+                $search = "%$search%";
+                break;
+            case 'Starts':
+                $search = "$search%";
+                break;
+            case 'Ends':
+                $search = "%$search";
+                break;
+        }
+        $qstr .= "Where empname LIKE '$search'";
+        // if (!$hasDigits) {
+        //     $qstr .= "Where empname LIKE '%$search%'";
+        // } else {
+        //     $qstr .= "Where regno LIKE '%$search'";
+        // }
         $results = DB::select($qstr);
         //
         return response()->json(

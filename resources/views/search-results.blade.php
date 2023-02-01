@@ -13,6 +13,7 @@
     <div x-data="{
             showResults: false,
             searchresults: [],
+            searchtype: 'Exact',
             member: {},
             transactions: [],
             regno: '',
@@ -43,6 +44,7 @@
                 } else {
 				 	let formData = new FormData();
 				 	formData.append('search', this.regno);
+				 	formData.append('type', this.searchtype);
                     this.loading = true;
 
 				 	axios.post('{{ route('search') }}', formData, {
@@ -70,6 +72,15 @@
                 <div class="my-4 p-0">
                     <label class="font-bold mb-4">Search by Reg. No. / Name</label>
                     <input x-model="regno" type="text" class="w-full" required>
+                </div>
+                <div class="my-4 p-0">
+                    <label class="font-bold mb-4">Exact match</label>
+                    <select x-model="searchtype">
+                        <option value="Exact">Exact</option>
+                        <option value="Contains">Contains</option>
+                        <option value="Starts">Starts With</option>
+                        <option value="Ends">Ends With</option>
+                    </select>
                 </div>
                 <div class="flex flex-row justify-evenly my-4 p-0">
                     <button @click.prevent.stop="reset()"
