@@ -79,11 +79,11 @@
                 </div>
             </form>
             <div x-show="searchresults.length > 0" id="resultsdiv" class="w-full">
-                <h3 class="px-2 my-2 font-bold">Click to load details</h3>
+                <h3 class="px-2 my-2 font-bold">Click to load details:</h3>
                 <ul>
                     <template x-for="result in searchresults">
                         <li>
-                            <button @click="getDetails(result.regno)" type="button" class="bg-gray-100 border-b border-gray-400 my-1 block w-full" x-text="result.empname + ', ' + result.regno"></button>
+                            <button @click="getDetails(result.regno)" type="button" class="text-left bg-gray-100 border-b border-gray-400 my-1 block w-full break-words" x-text="result.empname + ', ' + result.regno"></button>
                         </li>
                     </template>
                 </ul>
