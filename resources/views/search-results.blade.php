@@ -62,14 +62,14 @@
                 @fragment('results')
                     @if (count($persons) == 0)
                     <div>
-                        <h3 class="text-center text-red-400 underline text-xl my-1">No member found.</h3>
+                        <h3 class="text-center text-red-400 text-xl my-4">No member found.</h3>
                     </div>
                     @else
                     <button type="button"
                         class="bg-gray-500 hover:bg-gray-300 text-white hover:text-gray-600 px-2 py-1 rounded-md shadow-md absolute top-2 right-2"
                         @click.stop.prevent="window.print()">Print</button>
                     <div>
-                        <h3 class="text-center font-bold underline text-xl my-1">Member details</h3>
+                        <h3 class="text-center font-bold underline text-xl my-2">Member details</h3>
                     </div>
                     <div class="my-2 flex flex-wrap space-x-2 justify-evenly items-stretch">
                         <div class="w-2/5 min-w-fit p-1 border border-gray-300 rounded-md">
