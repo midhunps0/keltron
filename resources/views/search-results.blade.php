@@ -20,12 +20,15 @@
             getDetails(rno) {
                 let p = {};
                 p.search = rno;
+				let formData = new FormData();
+				formData.append('search', rno);
                 this.loading = true;
-                axios.get(
-                    '{{ route('details.post') }}', {
-                        params: p
-                    }
-                ).then((r) => {
+                axios.post(
+                    '{{ route('details.post') }}', formData, {
+						headers: {
+						'Content-Type': 'multipart/form-data'
+						}
+					}).then((r) => {
                     console.log(r.data);
                     document.getElementById('detailsdiv').innerHTML = r.data;
                     this.loading = false;
@@ -38,21 +41,22 @@
                 if (this.regno.trim() == '') {
                     alert('Please enter a register number');
                 } else {
-                    let p = {};
-                    p.search = this.regno;
+				 	let formData = new FormData();
+				 	formData.append('search', this.regno);
                     this.loading = true;
-                    axios.post(
-                        '{{ route('search') }}', {
-                            params: p
-                        }
-                    ).then((r) => {
-                        console.log(r.data);
-                        this.searchresults = JSON.parse(r.data.results);
+
+				 	axios.post('{{ route('search') }}', formData, {
+						headers: {
+						'Content-Type': 'multipart/form-data'
+						}
+					}).then((r) => {
+                        console.log(r.data.results);
+                        this.searchresults = r.data.results;
                         this.loading = false;
-                    }).catch((e) => {
-                        console.log(e);
-                        this.loading = false;
-                    });
+				 		console.log(this.searchresults);
+					}).catch(function (e) {
+						console.log(e);
+					});
                 }
             },
             reset() {
@@ -60,7 +64,7 @@
             }
         }" class="flex flex-wrap items-stretch justify-start min-h-screen">
         <div class="w-1/5 p-4 print:hidden bg-gray-200">
-            <form action="" class="w-full border border-gray-500 rounded-md">
+            <form action="" class="w-full border bg-gray-400 border-gray-500 rounded-md">
                 <div class="my-4 p-0">
                     <label class="font-bold mb-4">Search by Reg. No.</label>
                     <input x-model="regno" type="text" class="w-full" required>
@@ -74,7 +78,8 @@
                         type="submit">Submit</button>
                 </div>
             </form>
-            <div id="resultsdiv" class="w-full">
+            <div x-show="searchresults.length > 0" id="resultsdiv" class="w-full">
+                <h3 class="px-2 my-2 font-bold">Click to load details</h3>
                 <ul>
                     <template x-for="result in searchresults">
                         <li>
@@ -92,6 +97,9 @@
                         <h3 class="text-center text-red-400 text-xl my-4">No member found.</h3>
                     </div>
                     @else
+                    @php
+                        $person = $persons[0];
+                    @endphp
                     <button type="button"
                         class="bg-gray-500 hover:bg-gray-300 text-white hover:text-gray-600 px-2 py-1 rounded-md shadow-md absolute top-2 right-2"
                         @click.stop.prevent="window.print()">Print</button>
@@ -184,7 +192,9 @@
                 </div> --}}
             @endif
         </div>
-        <div x-show="loading" class="fixed top-0 left-0 h-screen w-screen bg-gray-900 opacity-40 z-50"></div>
+        <div x-show="loading" class="fixed top-0 left-0 h-screen w-screen bg-gray-900 opacity-40 z-50 flex flex-row items-center justify-center">
+                <img src="loading.gif" class="h-16 w-16">
+        </div>
     </div>
     <script src="app.js" type="text/javascript"></script>
 </body>
