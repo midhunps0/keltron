@@ -42,7 +42,7 @@
                     p.search = this.regno;
                     this.loading = true;
                     axios.post(
-                        '{{ route('search') }}', {
+                        '{{ route('search.action') }}', {
                             params: p
                         }
                     ).then((r) => {

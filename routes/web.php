@@ -17,5 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::post('/search', [DefaultController::class, 'search'])->name('search');
+Route::get('/search', [DefaultController::class, 'search'])->name('search.create');
+Route::post('/search', [DefaultController::class, 'search'])->name('search.action');
 Route::get('/details', [DefaultController::class, 'details'])->name('details');
