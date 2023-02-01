@@ -19,19 +19,21 @@ class DefaultController extends Controller
                 break;
             }
         }
+        $term = $hasDigits ? 'regno' : 'empname';
+
         $qstr = "SELECT regno, empname, guardianname, empcuraddress, dateofbirth, startingdate, regdate, public.registration.createdate, idmark1, idmark2 FROM public.registration ";
         switch($type) {
             case 'Exact':
-                $qstr .= "Where empname = '$search'";
+                $qstr .= "Where $term = '$search'";
                 break;
             case 'Contains':
-                $qstr .= "Where empname LIKE '%$search%'";
+                $qstr .= "Where $term LIKE '%$search%'";
                 break;
             case 'Starts':
-                $qstr .= "Where empname LIKE '$search%'";
+                $qstr .= "Where $term LIKE '$search%'";
                 break;
             case 'Ends':
-                $qstr .= "Where empname LIKE '%$search'";
+                $qstr .= "Where $term LIKE '%$search'";
                 break;
         }
 
