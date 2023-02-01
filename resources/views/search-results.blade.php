@@ -61,12 +61,13 @@
             },
             reset() {
                 document.getElementById('resultsdiv').innerHTML = '';
+                regno = '';
             }
         }" class="flex flex-wrap items-stretch justify-start min-h-screen">
         <div class="w-1/5 p-4 print:hidden bg-gray-200">
             <form action="" class="w-full border bg-gray-400 border-gray-500 rounded-md">
                 <div class="my-4 p-0">
-                    <label class="font-bold mb-4">Search by Reg. No.</label>
+                    <label class="font-bold mb-4">Search by Reg. No. / Name</label>
                     <input x-model="regno" type="text" class="w-full" required>
                 </div>
                 <div class="flex flex-row justify-evenly my-4 p-0">
@@ -80,7 +81,7 @@
             </form>
             <div x-show="searchresults.length > 0" id="resultsdiv" class="w-full">
                 <h3 class="px-2 my-2 font-bold">Click to load details:</h3>
-                <ul>
+                <ul class="px-2">
                     <template x-for="result in searchresults">
                         <li>
                             <button @click="getDetails(result.regno)" type="button" class="text-left bg-gray-100 border-b border-gray-400 my-1 block w-full break-words" x-text="result.empname + ', ' + result.regno"></button>
