@@ -196,6 +196,33 @@
                             </table>
                             {{-- @endif --}}
                         </div>
+                        <div class="w-1/2 min-w-fit my-2 p-1 border border-gray-300 rounded-md">
+                            <h3 class="text-center font-bold underline text-lg my-1 ">Allowances details</h3>
+                            {{-- @if (count($amounts) > 0) --}}
+                            <table class="w-full min-w-[350px] m-auto max-w-lg overflow-hidden">
+                                <tr>
+                                    <th class="py-1 px-2 text-bold">Appln. No.</th>
+                                    <th class="py-1 px-2 text-bold">Appln. Dt.</th>
+                                    <th class="py-1 px-2 text-bold">Decided Dt.</th>
+                                    <th class="py-1 px-2 text-bold">Decided Amt.</th>
+                                    <th class="py-1 px-2 text-bold">Pay Dt.</th>
+                                </tr>
+                                @forelse ($allowances as $amt)
+                                    <tr>
+                                        <td class="py-1 px-2">{{ $amt->applnno }}</td>
+                                        <td class="py-1 px-2">{{ $amt->applndate }}</td>
+                                        <td class="py-1 px-2">{{ $amt->decideddate }}</td>
+                                        <td class="py-1 px-2">{{ $amt->decidedamount }}</td>
+                                        <td class="py-1 px-2">{{ $amt->paydate }}</td>
+                                    </tr>
+                                @empty
+                                <tr>
+                                    <td colspan="4">No allowances recorded for this user.</td>
+                                </tr>
+                                @endforelse
+                            </table>
+                            {{-- @endif --}}
+                        </div>
                     </div>
                     @endif
                 @endfragment

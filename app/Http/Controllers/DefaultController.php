@@ -62,9 +62,27 @@ class DefaultController extends Controller
             "SELECT financialaccounting.ledger.transdate, financialaccounting.ledger.vouchernum, financialaccounting.ledger.amount, public.remarks.remark FROM public.registration JOIN financialaccounting.ledger ON public.registration.regid = financialaccounting.ledger.regid Join public.remarks ON financialaccounting.ledger.remarks = public.remarks.remindex Where regno='$search' ORDER BY financialaccounting.ledger.transdate DESC"
         );
 
+        $allocanceResults = DB::select(
+            "SELECT public.welfareappln.applnno, public.welfareappln.applndate, public.welfareappln.decideddate, public.welfareappln.decidedamount, public.welfareappln.paydate FROM public.registration JOIN public.welfareappln ON public.registration.regid = public.welfareappln.regid Where regno='$search' ORDER BY public.welfareappln.applndate DESC"
+        );
+
         if ($request->expectsJson()) {
-            return view('search-results', ['persons' => $personResults, 'amounts' => $amountResults])->fragment('results');
+            return view(
+                'search-results',
+                [
+                    'persons' => $personResults,
+                    'amounts' => $amountResults,
+                    'allowances' => $allocanceResults,
+                    ]
+            )->fragment('results');
         }
-        return view('search-results', ['persons' => $personResults, 'amounts' => $amountResults]);
+        return view(
+            'search-results',
+            [
+                'persons' => $personResults,
+                'amounts' => $amountResults,
+                'allowances' => $allocanceResults,
+                ]
+        );
     }
 }
