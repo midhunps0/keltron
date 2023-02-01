@@ -61,6 +61,7 @@
             },
             reset() {
                 document.getElementById('resultsdiv').innerHTML = '';
+                document.getElementById('detailsdiv').innerHTML = '';
                 this.regno = '';
             }
         }" class="flex flex-wrap items-stretch justify-start min-h-screen">
