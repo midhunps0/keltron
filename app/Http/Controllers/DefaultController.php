@@ -32,11 +32,11 @@ class DefaultController extends Controller
             "SELECT financialaccounting.ledger.transdate, financialaccounting.ledger.vouchernum, financialaccounting.ledger.amount, public.remarks.remark FROM public.registration JOIN financialaccounting.ledger ON public.registration.regid = financialaccounting.ledger.regid Join public.remarks ON financialaccounting.ledger.remarks = public.remarks.remindex Where regno='$search' ORDER BY financialaccounting.ledger.transdate DESC"
         );
 
-        $p = $personResults[0];
+        // $p = $personResults[0];
         // dd($amountResults);
         if ($request->expectsJson()) {
-            return view('search-results', ['person' => $p, 'amounts' => $amountResults])->fragment('results');
+            return view('search-results', ['persons' => $personResults, 'amounts' => $amountResults])->fragment('results');
         }
-        return view('search-results', ['person' => $p, 'amounts' => $amountResults]);
+        return view('search-results', ['persons' => $personResults, 'amounts' => $amountResults]);
     }
 }

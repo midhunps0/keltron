@@ -11,32 +11,36 @@
 
 <body class="text-sm">
     <div x-data="{
-        showResults: false,
-        member: {},
-        transactions: [],
-        regno: '',
-        submitForm() {
-            if (this.regno.trim() == '') {
-                alert('Please enter a register number');
-            } else {
-                let p = {};
-                p.search = this.regno;
-                axios.get(
-                    '{{ route('search') }}', {
-                        params: p
-                    }
-                ).then((r) => {
-                    console.log(r.data);
-                    document.getElementById('resultsdiv').innerHTML = r.data;
-                }).catch((e) => {
-                    console.log(e);
-                });
+            showResults: false,
+            member: {},
+            transactions: [],
+            regno: '',
+            loading: false,
+            submitForm() {
+                if (this.regno.trim() == '') {
+                    alert('Please enter a register number');
+                } else {
+                    let p = {};
+                    p.search = this.regno;
+                    this.loading - true;
+                    axios.get(
+                        '{{ route('search') }}', {
+                            params: p
+                        }
+                    ).then((r) => {
+                        console.log(r.data);
+                        document.getElementById('resultsdiv').innerHTML = r.data;
+                        this.loading = false;
+                    }).catch((e) => {
+                        console.log(e);
+                        this.loading = false;
+                    });
+                }
+            },
+            reset() {
+                document.getElementById('resultsdiv').innerHTML = '';
             }
-        },
-        reset() {
-            document.getElementById('resultsdiv').innerHTML = '';
-        }
-    }" class="flex flex-wrap items-stretch justify-start min-h-screen">
+        }" class="flex flex-wrap items-stretch justify-start min-h-screen">
         <div class="w-1/5 p-4 print:hidden bg-gray-200">
             <form action="" class="w-full border border-gray-500 rounded-md">
                 <div class="my-4 p-0">
@@ -54,8 +58,13 @@
             </form>
         </div>
         <div id="resultsdiv" class=" relative w-4/5 flex flex-col">
-            @if (isset($person) && isset($amounts))
+            @if (isset($persons) && isset($amounts))
                 @fragment('results')
+                    @if (count($persons) == 0)
+                    <div>
+                        <h3 class="text-center text-red-400 underline text-xl my-1">No member found.</h3>
+                    </div>
+                    @else
                     <button type="button"
                         class="bg-gray-500 hover:bg-gray-300 text-white hover:text-gray-600 px-2 py-1 rounded-md shadow-md absolute top-2 right-2"
                         @click.stop.prevent="window.print()">Print</button>
@@ -114,7 +123,7 @@
                                 </tr>
                             </table>
                         </div>
-                        <div class="w-2/5 min-w-fit my-2 p-1 border border-gray-300 rounded-md">
+                        <div class="w-1/2 min-w-fit my-2 p-1 border border-gray-300 rounded-md">
                             <h3 class="text-center font-bold underline text-lg my-1 ">Transaction details</h3>
                             {{-- @if (count($amounts) > 0) --}}
                             <table class="w-full min-w-[350px] m-auto max-w-lg overflow-hidden">
@@ -140,6 +149,7 @@
                             {{-- @endif --}}
                         </div>
                     </div>
+                    @endif
                 @endfragment
             {{-- @else
                 <div class="my-2 flex flex-wrap space-x-2 justify-evenly items-stretch">
@@ -147,8 +157,8 @@
                 </div> --}}
             @endif
         </div>
+        <div x-show="loading" class="fixed top-0 left-0 h-screen w-screen bg-gray-900 opacity-40 z-50"></div>
     </div>
-
     <script src="app.js" type="text/javascript"></script>
 </body>
 
